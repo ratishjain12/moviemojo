@@ -1,23 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import {Switch,Route} from 'react-router-dom';
+import Nowplaying from './pages/Nowplaying';
+import Popular from './pages/Popular';
+import Upcoming from './pages/Upcoming';
+import Toprated from './pages/Toprated';
+import Trending from './pages/Trending';
+import Moviedetails from './pages/Moviedetails';
+import ProtectedRoute from './auth/protected-route';
+import Watchlist from './pages/Watchlist';
+
+
 
 function App() {
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Header/>
+      <Switch>
+          <Route path="/" exact>
+            <Trending/>
+          </Route>
+          <Route path="/Toprated">
+          <Toprated/>
+          </Route>
+          <Route path="/Popular">
+            <Popular/>
+          </Route>
+          <Route path="/Upcoming">
+            <Upcoming/>
+          </Route>
+          <Route path="/Nowplaying">
+            <Nowplaying/>
+          </Route>
+          <Route path="/Moviedetails/:id">
+            <Moviedetails/>
+          </Route>
+          <ProtectedRoute path="/Watchlist" exact component={Watchlist}/>
+            
+      </Switch>
+      
     </div>
   );
 }
