@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './Header';
-import {Switch,Route} from 'react-router-dom';
+import {Routes,Route} from 'react-router-dom';
 import Nowplaying from './pages/Nowplaying';
 import Popular from './pages/Popular';
 import Upcoming from './pages/Upcoming';
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       
       <Header/>
-      <Switch>
+      <Routes>
           <Route path="/" exact>
             <Trending/>
           </Route>
@@ -40,7 +40,7 @@ function App() {
           </Route>
           <ProtectedRoute path="/Watchlist" exact component={Watchlist}/>
             
-      </Switch>
+      </Routes>
       
     </div>
   );
