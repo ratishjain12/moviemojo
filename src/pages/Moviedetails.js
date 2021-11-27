@@ -4,7 +4,7 @@ import StarIcon from '@mui/icons-material/Star';
 import Checkbox from '@mui/material/Checkbox';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Button from '@mui/material/Button';
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useParams} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -79,12 +79,10 @@ function Moviedetails() {
                     <div className='flex items-center mr-10'>
                     
                     {random ? (<>
-                        <Button variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)} type="submit">
-                        <p  className='text-md text-pink-800 font-semibold'>
-                          Remove
-                        </p>
-                            
-                        </Button>
+                        <Checkbox icon={<DeleteIcon className='text-pink-800' />}
+                           checkedIcon={<DeleteIcon className='text-pink-800' />}
+                            disabled={!isAuthenticated}
+                            onClick={()=>removeWatchlist()}/>
 
                     </>):(<>
                         <Checkbox icon={<BookmarkBorderIcon />}

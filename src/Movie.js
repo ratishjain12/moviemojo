@@ -2,7 +2,6 @@ import React ,{useEffect, useState} from 'react'
 import StarIcon from '@mui/icons-material/Star';
 import Checkbox from '@mui/material/Checkbox';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useAuth0 } from "@auth0/auth0-react";
 import {Link} from 'react-router-dom';
@@ -82,13 +81,12 @@ function Movie({image,title,overview,rating,id}) {
                     </div>
                     
                     {random ? (<>
-                        <Button variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)}>
-                        <p  className='text-md text-pink-800 font-semibold'>
-                          Remove
-                        </p>
-                            
-                        </Button>
-
+                        <Checkbox icon={<DeleteIcon className='text-pink-800' />}
+                           checkedIcon={<DeleteIcon className='text-pink-800' />}
+                            disabled={!isAuthenticated}
+                            onClick={()=>removeWatchlist(id)}/>
+                        
+                        
                     </>):(<>
                         <Checkbox icon={<BookmarkBorderIcon />}
                            checkedIcon={<BookmarkBorderIcon />}

@@ -2,8 +2,8 @@ import React,{useEffect,useState} from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import Watchlistitem from '../components/Watchlistitem';
 import Axios from 'axios';
-import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Checkbox from '@mui/material/Checkbox';
 
 function Watchlist() {
     const [movies, setMovies] = useState();
@@ -37,12 +37,10 @@ function Watchlist() {
                     <>
                     <Watchlistitem id = {movie.movie_id} image= {movie.image} title = {movie.title} overview = {movie.overview} rating = {movie.rating}/>
                     <div className='flex justify-end mr-10 items-center mb-3'>
-                    <Button  variant = "outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(movie.movie_id)} >
-                        <p  className='text-md text-pink-800 font-semibold'>
-                          Remove
-                        </p>
-                            
-                    </Button>
+                    <Checkbox icon={<DeleteIcon className='text-pink-800' />}
+                           checkedIcon={<DeleteIcon className='text-pink-800' />}
+                           onClick={()=>removeWatchlist(movie.movie_id)}/>
+                    
                     </div>
                     
                     </>
