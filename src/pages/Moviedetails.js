@@ -79,7 +79,7 @@ function Moviedetails() {
                     <div className='flex items-center mr-10'>
                     
                     {random ? (<>
-                        <Button variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)}>
+                        <Button variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)} type="submit">
                         <p  className='text-md text-pink-800 font-semibold'>
                           Remove
                         </p>
@@ -91,6 +91,8 @@ function Moviedetails() {
                            checkedIcon={<BookmarkIcon />}
                             disabled={!isAuthenticated}
                             onClick ={()=>addWatchlist(id,movies?.title,img_url,movies?.overview,movies?.vote_average)}
+                            type= "submit"
+
                            />
                     </>)}
                     
@@ -102,7 +104,7 @@ function Moviedetails() {
         </div>
         
         </div>
-    )
+    )   
 
 }
 export default Moviedetails;

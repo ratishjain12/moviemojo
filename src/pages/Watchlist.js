@@ -20,6 +20,7 @@ function Watchlist() {
     }, [track])
 
     const removeWatchlist = (id) =>{
+        
         Axios.post('https://moviemojo-mern.herokuapp.com/remove',{id:id}).then((Response)=>{
             if(Response.data){
                 alert('Removed from watchlist');
@@ -36,7 +37,7 @@ function Watchlist() {
                     <>
                     <Watchlistitem id = {movie.movie_id} image= {movie.image} title = {movie.title} overview = {movie.overview} rating = {movie.rating}/>
                     <div className='flex justify-end mr-10 items-center mb-3'>
-                    <Button  variant = "outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(movie.movie_id)} >
+                    <Button  variant = "outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(movie.movie_id)} type="submit">
                         <p  className='text-md text-pink-800 font-semibold'>
                           Remove
                         </p>

@@ -82,7 +82,7 @@ function Movie({image,title,overview,rating,id}) {
                     </div>
                     
                     {random ? (<>
-                        <Button variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)}>
+                        <Button  variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)} type="submit">
                         <p  className='text-md text-pink-800 font-semibold'>
                           Remove
                         </p>
@@ -93,7 +93,9 @@ function Movie({image,title,overview,rating,id}) {
                         <Checkbox icon={<BookmarkBorderIcon />}
                            checkedIcon={<BookmarkBorderIcon />}
                             disabled={!isAuthenticated}
-                            onClick ={()=>addWatchlist(id,title,image,overview,rating)}/>
+                            onClick ={()=>addWatchlist(id,title,image,overview,rating)}
+                            type="submit"
+                            />
                     </>)}
                     
                     
