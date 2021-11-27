@@ -50,7 +50,7 @@ function Moviedetails() {
     const removeWatchlist = () => {
         Axios.post('https://moviemojo-mern.herokuapp.com/remove',{id:id}).then((Response)=>{
             if(Response.data){
-                console.log('Removed from watchlist');
+                alert('Removed from watchlist');
             }
         })
         setTrack(!track);
@@ -87,12 +87,11 @@ function Moviedetails() {
                         </Button>
 
                     </>):(<>
-                    
                         <Checkbox icon={<BookmarkBorderIcon />}
                            checkedIcon={<BookmarkIcon />}
                             disabled={!isAuthenticated}
                             onClick ={()=>addWatchlist(id,movies?.title,img_url,movies?.overview,movies?.vote_average)}
-                            type= "submit"
+                            
 
                            />
                     </>)}
