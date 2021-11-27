@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../Header';
 import {useState,useEffect} from 'react';
 import Axios from 'axios';
 import requests from '../requests';

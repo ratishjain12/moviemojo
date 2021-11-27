@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './Header';
-import {Routes,Route} from 'react-router-dom';
+import {Switch,Route} from 'react-router-dom';
 import Nowplaying from './pages/Nowplaying';
 import Popular from './pages/Popular';
 import Upcoming from './pages/Upcoming';
@@ -12,6 +12,8 @@ import Watchlist from './pages/Watchlist';
 
 
 
+
+
 function App() {
   
 
@@ -19,28 +21,30 @@ function App() {
     <div className="App">
       
       <Header/>
-      <Routes>
-          <Route path="/" exact>
-            <Trending/>
-          </Route>
-          <Route path="/Toprated">
-          <Toprated/>
-          </Route>
-          <Route path="/Popular">
-            <Popular/>
-          </Route>
-          <Route path="/Upcoming">
-            <Upcoming/>
-          </Route>
-          <Route path="/Nowplaying">
-            <Nowplaying/>
-          </Route>
-          <Route path="/Moviedetails/:id">
-            <Moviedetails/>
-          </Route>
-          <ProtectedRoute path="/Watchlist" exact component={Watchlist}/>
+      
+      <Switch>
+          <Route path="/" component = {Trending} exact/>
             
-      </Routes>
+          <Route path="/Toprated" component={Toprated} />
+          
+          <Route path="/Popular" component={Popular} />
+            
+         
+          <Route path="/Upcoming" component={Upcoming} />
+           
+          
+          <Route path="/Nowplaying" component={Nowplaying} />
+            
+          <Route path="/Moviedetails/:id" component={Moviedetails} />
+
+          <ProtectedRoute path="/Watchlist" component={Watchlist}/>
+
+        </Switch>
+        
+        
+      
+      
+      
       
     </div>
   );
