@@ -82,7 +82,7 @@ function Movie({image,title,overview,rating,id}) {
                     </div>
                     
                     {random ? (<>
-                        <Button  variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)} type="submit">
+                        <Button variant="outlined" startIcon={<DeleteIcon className='text-pink-800' />} color="secondary" onClick={()=>removeWatchlist(id)}>
                         <p  className='text-md text-pink-800 font-semibold'>
                           Remove
                         </p>
