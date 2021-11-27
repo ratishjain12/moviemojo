@@ -24,9 +24,10 @@ function Watchlist() {
         Axios.post('https://moviemojo-mern.herokuapp.com/remove',{id:id}).then((Response)=>{
             if(Response.data){
                 alert('Removed from watchlist');
+                setTrack(!track);
             }
         })
-        setTrack(!track);
+        
         
     }
 
